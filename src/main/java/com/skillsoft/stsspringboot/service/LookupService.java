@@ -3,7 +3,6 @@ package com.skillsoft.stsspringboot.service;
 import com.skillsoft.stsspringboot.model.User;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -16,8 +15,8 @@ public class LookupService {
     private static final String GITHUB_USERS_URL = "https://api.github.com/users/%s";
     private final RestTemplate restTemplate;
 
-    public LookupService(RestTemplateBuilder restTemplateBuilder) {
-        this.restTemplate = restTemplateBuilder.build();
+    public LookupService() {
+        this.restTemplate = new RestTemplate();
     }
 
     @Async
